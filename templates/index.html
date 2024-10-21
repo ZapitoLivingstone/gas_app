@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convenio - Descuentos en Cilindros de Gas</title>
+    {% load static %}
+    <link href="{% static 'styles.css' %}" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Convenio de Descuentos en Cilindros de Gas</h1>
+      <p>
+        Agrupación de Municipalidades de Chile con Empresa de Distribución de
+        Gas
+      </p>
+    </header>
+
+    <div class="container mt-4">
+      <section class="info-section">
+        <h2>
+          Bienvenido al Sistema de Solicitudes de Descuentos en Cilindros de Gas
+        </h2>
+        <p>
+          A partir de este convenio, los vecinos/as de todas las municipalidades
+          de Chile podrán acceder a importantes descuentos en la compra de
+          cilindros de gas licuado. Ingresa tu solicitud para aprovechar estos
+          beneficios.
+        </p>
+      </section>
+
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Ingresar Solicitud</h5>
+              <p class="card-text">
+                Ingresa tu solicitud de descuento en el sistema para acceder a
+                los beneficios por la compra de cilindros de gas.
+              </p>
+              <a href="{% url 'ingresar_solicitud' %}" class="btn btn-primary"
+                >Ir a Ingresar Solicitud</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Administrar Solicitudes</h5>
+              <p class="card-text">
+                Visualiza y administra las solicitudes ingresadas por los
+                usuarios de las municipalidades.
+              </p>
+              <a
+                href="{% url 'administrar_solicitudes' %}"
+                class="btn btn-primary"
+                >Ir a Administrar Solicitudes</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Buscar Solicitud</h5>
+              <p class="card-text">Busca una solicitud específica por RUT.</p>
+              <a href="{% url 'buscar_solicitud' %}" class="btn btn-primary"
+                >Buscar Solicitud</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2024 Agrupación de Municipalidades de Chile</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

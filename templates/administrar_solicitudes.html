@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administrar Solicitudes</title>
+    {% load static %}
+    <link href="{% static 'styles.css' %}" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h1 class="text-center">Administrar Solicitudes</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">RUT</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Fecha Solicitud</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for solicitud in solicitudes %} {% if solicitud.pk %}
+          <tr>
+            <td>{{ solicitud.rut }}</td>
+            <td>{{ solicitud.nombre }}</td>
+            <td>{{ solicitud.apellido }}</td>
+            <td>{{ solicitud.get_estado_display }}</td>
+            <td>{{ solicitud.fecha_solicitud }}</td>
+            <td>
+              <a
+                href="{% url 'detalle_solicitud' pk=solicitud.pk %}"
+                class="btn btn-info btn-sm"
+              >
+                Detalles
+              </a>
+              <a
+                href="{% url 'cambiar_estado' pk=solicitud.pk %}"
+                class="btn btn-warning btn-sm"
+              >
+                Cambiar Estado
+              </a>
+              <a
+                href="{% url 'eliminar_solicitud' pk=solicitud.pk %}"
+                class="btn btn-danger btn-sm"
+              >
+                Eliminar
+              </a>
+            </td>
+          </tr>
+          {% else %}
+          <tr>
+            <td colspan="6" class="text-center text-danger">
+              Error: Solicitud sin ID
+            </td>
+          </tr>
+          {% endif %} {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
